@@ -33,13 +33,13 @@ def train(epochs):
         loss.backward()
         optimizer.step()
 
-        # print('Training Epoch: {epoch} [{trained_samples}/{total_samples}]\tLoss: {:0.4f}\tLR: {:0.6f}'.format(
-        #     loss.item(),
-        #     optimizer.param_groups[0]['lr'],
-        #     epoch=epoch,
-        #     trained_samples=batch_index * args.b + len(images),
-        #     total_samples=len(trainloader.dataset)
-        # ))
+        print('Training Epoch: {epoch} [{trained_samples}/{total_samples}]\tLoss: {:0.4f}\tLR: {:0.6f}'.format(
+            loss.item(),
+            optimizer.param_groups[0]['lr'],
+            epoch=epoch,
+            trained_samples=batch_index * args.b + len(images),
+            total_samples=len(trainloader.dataset)
+        ))
 
         if epoch <= args.warm:
             warmup_scheduler.step()
